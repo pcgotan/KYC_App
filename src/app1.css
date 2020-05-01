@@ -1,0 +1,8 @@
+@media (prefers-reduced-motion: no-preference) {
+    .logoo {
+        animation: App-logo-spin infinite 20s linear;
+    }
+}
+
+@media (orientation: portrait) {
+}
