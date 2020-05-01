@@ -229,8 +229,8 @@ export default function Selfie(props) {
                         <img
                             className="classid_f"
                             src={`data:image/jpeg;base64,${id_f}`}
-                            height="230"
-                            width="165"
+                            height="150"
+                            width="240"
                             alt="Front"
                         />
                         <br></br>
@@ -239,8 +239,8 @@ export default function Selfie(props) {
                         <img
                             className="classid_b"
                             src={`data:image/jpeg;base64,${id_b}`}
-                            height="230"
-                            width="165"
+                            height="150"
+                            width="240"
                             alt="Back"
                         />
                     </div>

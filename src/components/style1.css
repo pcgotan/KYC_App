@@ -139,21 +139,19 @@ figure img {
 .classid_f {
     object-fit: cover;
     position: absolute;
-    clip: rect(0px, 160px, 220px, 15px);
-    transform: rotate(270deg);
+    clip: rect(5px, 222px, 135px, 22px);
+    /* transform: rotate(270deg); */
     /* zoom: 1.2; */
-    margin-top: -100px;
-    margin-left: -70px;
+    margin-top: -60px;
+    margin-left: -110px;
 }
 
 .classid_b {
     object-fit: cover;
     position: absolute;
-    clip: rect(0px, 160px, 220px, 15px);
-    transform: rotate(270deg);
-    /* zoom: 1.2; */
-    margin-top: 0px;
-    margin-left: -70px;
+    clip: rect(5px, 222px, 135px, 22px);
+    margin-top: 25px;
+    margin-left: -110px;
 }
 
 .button_id {
@@ -210,13 +208,13 @@ figure img {
     min-width: 50px;
     max-width: 300px;
     margin-top: 0px;
-    width: 80px;
+    width: 180px;
     /* height: 200px; */
     padding: 6px 24px;
     background: #4bad4f;
     opacity: 0.8;
-    transform: rotate(90deg);
-    border-radius: 30%;
+    /* transform: rotate(90deg); */
+    /* border-radius: 30%; */
 }
 
 /* .button {
@@ -248,21 +246,21 @@ figure img {
 .classid_f_succ {
     object-fit: cover;
     position: absolute;
-    clip: rect(0px, 160px, 220px, 15px);
-    transform: rotate(270deg);
+    clip: rect(5px, 240px, 148px, 22px);
+    /* transform: rotate(270deg); */
     /* zoom: 1.2; */
-    margin-top: -100px;
-    margin-left: -130px;
+    /* margin-top: -100px;
+    margin-left: -130px; */
 }
 
 .classid_b_succ {
     object-fit: cover;
     position: absolute;
-    clip: rect(0px, 160px, 220px, 15px);
-    transform: rotate(270deg);
+    clip: rect(5px, 240px, 148px, 22px);
+    /* transform: rotate(270deg); */
     /* zoom: 1.2; */
-    margin-top: 0px;
-    margin-left: -130px;
+    /* margin-top: 0px;
+    margin-left: -130px; */
 }
 
 .button_id_succ {

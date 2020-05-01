@@ -56,11 +56,11 @@ export const Video1 = styled.video`
 
 export const Overlay = styled.div`
     position: absolute;
-    top: 100px;
+    top: 250px;
     right: 30px;
-    bottom: 100px;
+    bottom: 250px;
     left: 30px;
-    box-shadow: 0px 0px 20px 56px rgba(0, 0, 0, 0.4);
+    box-shadow: 0px 0px 600px 56px rgba(0, 0, 0, 0.4);
     border: 1px solid #ffffff;
     border-radius: 10px;
 `;
@@ -90,14 +90,13 @@ export const Overlay1 = styled.div`
 
 export const Overlay2 = styled.div`
     position: absolute;
-    top: 70px;
-    right: 230px;
-    bottom: 160px;
-    left: 230px;
-    z-index: 30;
+    top: 100px;
+    right: 30px;
+    bottom: 100px;
+    left: 30px;
     box-shadow: 0px 0px 20px 56px rgba(0, 0, 0, 0.4);
     border: 1px solid #ffffff;
-    border-radius: 800px;
+    border-radius: 10px;
 `;
 
 export const Flash = styled.div`

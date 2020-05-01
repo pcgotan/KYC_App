@@ -101,9 +101,9 @@ class Success extends Component {
                         className="classid_f_succ"
                         src={`data:image/jpeg;base64,${this.state.id_f}`}
                         alt="classid_f_succ"
-                        height="230"
-                        width="165"
-                        style={{ marginLeft: -75, marginTop: -40 }}
+                        height="160"
+                        width="260"
+                        style={{ marginLeft: -129, marginTop: -10 }}
                     />
                     <div style={{ marginTop: 160 }}>
                         <h6>Back</h6>
@@ -112,9 +112,9 @@ class Success extends Component {
                         className="classid_b_succ"
                         src={`data:image/jpeg;base64,${this.state.id_b}`}
                         alt="classid_b_succ"
-                        height="230"
-                        width="165"
-                        style={{ marginLeft: -75, marginTop: -40 }}
+                        height="160"
+                        width="260"
+                        style={{ marginLeft: -129, marginTop: -10 }}
                     />
                     <div style={{ marginTop: 170, marginLeft: -20 }}>
                         <button
