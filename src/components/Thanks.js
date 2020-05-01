@@ -4,7 +4,7 @@ export default class Thanks extends Component {
     render() {
         return (
             <div className="Auth-container">
-                Bye bysdfdfffffffffffffffffffffe
+                Bye Bye!
             </div>
         );
     }
