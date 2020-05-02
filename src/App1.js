@@ -20,7 +20,7 @@ import Logout from './components/Logout';
 import Navbar from './components/Navbar';
 import Success from './components/Success';
 import Alertt from './Alertt';
-
+const os = require('os');
 const options = {
     timeout: 10000,
     position: positions.MIDDLE,
@@ -29,6 +29,18 @@ const options = {
 
 function App1() {
     const [darkMode, setDarkMode] = useLocalStorage('darkMode', false);
+    const temp = os.release();
+    var temp1 = '';
+    for (let i = 0; i < temp.length; i++) {
+        for (let j = i + 1; j < temp.length; j++) {
+            if (
+                temp.slice(i, j) === 'Mobile' ||
+                temp.slice(i, j) === 'mobile'
+            ) {
+                temp1 = temp.slice(i, j);
+            }
+        }
+    }
     React.useEffect(() => {
         if (darkMode) {
             document.querySelector('body').classList.add('dark-mode');
@@ -36,7 +48,7 @@ function App1() {
             document.querySelector('body').classList.remove('dark-mode');
         }
     }, [darkMode]);
-    if (window.innerWidth > 500) {
+    if (temp1.toLowerCase() !== 'mobile') {
         localStorage.removeItem('token');
         return (
             <Provider template={AlertTemplate} {...options}>
