@@ -68,7 +68,7 @@ export default class Logout extends Component {
                         </h3>
                         <h6 style={{ color: 'green' }}>
                             {' '}
-                            Your KYC is complete and varified.
+                            Your KYC is complete and verified.
                         </h6>
                         <div>
                             you can{' '}

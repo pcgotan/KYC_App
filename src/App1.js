@@ -112,8 +112,6 @@ function App1() {
                                                 path={page.pageLink}
                                                 component={page.view}
                                                 key={index}
-                                                darkMode={darkMode}
-                                                setDarkMode={setDarkMode}
                                             />
                                         );
                                     })}
