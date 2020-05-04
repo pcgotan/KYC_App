@@ -96,13 +96,13 @@ export default function Selfie(props) {
                     >
                         Upload ID Card
                     </h5>
-                    <h6 style={{ color: 'black', marginLeft: 90 }}>
+                    <h6 style={{ color: 'Gray', marginLeft: 90 }}>
                         Please upload a Government ID for KYC verification
                     </h6>
                     <div
                         style={{
                             fontSize: 12,
-                            color: 'Black',
+                            color: 'Gray',
                             textAlign: 'center',
                             marginLeft: 85,
                         }}
@@ -119,7 +119,7 @@ export default function Selfie(props) {
                             id="demo-simple-select-autowidth-label"
                             style={{ marginLeft: -20 }}
                         >
-                            Select ID
+                            {<div style={{ color: 'Green' }}>Select Id</div>}
                         </InputLabel>
                         <Select
                             style={{ marginLeft: -20 }}
@@ -128,7 +128,8 @@ export default function Selfie(props) {
                             value={whichId}
                             onChange={(e) => {
                                 setWhichId(e.target.value);
-                                // localStorage.setItem('whichid', whichId);
+                                localStorage.removeItem('imgId2');
+                                localStorage.removeItem('imgId1');
                             }}
                         >
                             <MenuItem value="Aadhar">Aadhar Card</MenuItem>
@@ -142,17 +143,19 @@ export default function Selfie(props) {
                     </FormControl>
                 </div>
                 <div className="selfie_page">
-                    <div className="id_logo">
-                        <img
-                            className="idcard"
-                            src={idcard}
-                            alt="idcard"
-                            style={{
-                                marginTop: -35,
-                                marginLeft: 15,
-                            }}
-                        ></img>
-                    </div>
+                    {id_f && id_b ? null : (
+                        <div className="id_logo">
+                            <img
+                                className="idcard"
+                                src={idcard}
+                                alt="idcard"
+                                style={{
+                                    marginTop: -35,
+                                    marginLeft: 15,
+                                }}
+                            ></img>
+                        </div>
+                    )}
                     <div className="">
                         <Root>
                             <Fullscreen
@@ -193,24 +196,31 @@ export default function Selfie(props) {
                                 >
                                     ID Scanner
                                 </button>
-                                <Link
-                                    to="/success"
-                                    onClick={
-                                        idwhich && id_f && id_b
-                                            ? null
-                                            : (e) => e.preventDefault()
-                                    }
-                                >
-                                    <button
-                                        className="button_id"
-                                        style={{
-                                            fontSize: 16,
-                                            width: 120,
-                                        }}
+                                {idwhich && id_f && id_b ? (
+                                    <Link
+                                        to="/success"
+                                        onClick={
+                                            idwhich && id_f && id_b
+                                                ? null
+                                                : (e) => e.preventDefault()
+                                        }
                                     >
-                                        Next Page
-                                    </button>
-                                </Link>
+                                        <button
+                                            className="button_id"
+                                            style={{
+                                                fontSize: 16,
+                                                width: 120,
+                                            }}
+                                            disabled={
+                                                idwhich && id_f && id_b
+                                                    ? false
+                                                    : true
+                                            }
+                                        >
+                                            Next Page
+                                        </button>
+                                    </Link>
+                                ) : null}
                                 {/* <button
                                         className="button"
                                         onClick={() => {

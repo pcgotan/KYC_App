@@ -30,6 +30,7 @@ const useStyles = (theme) => ({
         marginTop: theme.spacing(2),
     },
 });
+
 class Auth extends Component {
     constructor(props) {
         super(props);
@@ -204,7 +205,7 @@ class Auth extends Component {
                             // required
                             name="firstName"
                             id="outlined-required"
-                            label="First Name"
+                            label={'First Name'}
                             // defaultValue="Hello World"
                             variant="outlined"
                             onChange={this.myChangeHandler}
@@ -259,7 +260,7 @@ class Auth extends Component {
                         <button
                             className="button"
                             onClick={this.mySubmitHandler}
-                            style={{ marginLeft: 52 }}
+                            style={{ marginLeft: 52, width: 150 }}
                         >
                             <Link
                                 to="/selfie"
