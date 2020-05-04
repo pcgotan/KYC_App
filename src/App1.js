@@ -11,7 +11,6 @@ import './components/style.scss';
 import './components/style1.css';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import { transitions, positions, Provider } from 'react-alert';
-import { useAlert } from 'react-alert';
 import AlertTemplate from 'react-alert-template-basic';
 import Auth from './components/Auth';
 import Selfie from './components/Selfie';
@@ -48,7 +47,7 @@ function App1() {
             document.querySelector('body').classList.remove('dark-mode');
         }
     }, [darkMode]);
-    if (temp1.toLowerCase() !== 'mobile' && false) {
+    if (temp1.toLowerCase() !== 'mobile') {
         localStorage.removeItem('token');
         return (
             <Provider template={AlertTemplate} {...options}>

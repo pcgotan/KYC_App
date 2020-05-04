@@ -1,4 +1,3 @@
-import React, { Fragment } from 'react';
 import { useAlert } from 'react-alert';
 
 const Alertt = () => {
