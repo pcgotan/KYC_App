@@ -264,6 +264,7 @@ figure img {
 }
 
 .button_id_succ {
+    display: inline-block;
     position: relative;
     /* width: 75%; */
     min-width: 100px;

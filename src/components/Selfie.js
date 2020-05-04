@@ -58,13 +58,13 @@ export default function Selfie(props) {
                 </div>
                 <div style={{ color: 'green', textAlign: 'center' }}>
                     <h5 style={{ marginLeft: 70 }}> Take a Selfie</h5>
-                    <h6 style={{ marginLeft: 70, color: 'Black' }}>
+                    <h6 style={{ marginLeft: 70, color: 'Gray' }}>
                         Please upload a selfie for KYC verification
                     </h6>
                     <div
                         style={{
                             fontSize: 12,
-                            color: 'Black',
+                            color: 'Gray',
                             textAlign: 'center',
                             marginLeft: 85,
                         }}

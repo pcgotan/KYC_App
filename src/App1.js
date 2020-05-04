@@ -48,7 +48,7 @@ function App1() {
             document.querySelector('body').classList.remove('dark-mode');
         }
     }, [darkMode]);
-    if (temp1.toLowerCase() !== 'mobile') {
+    if (temp1.toLowerCase() !== 'mobile' && false) {
         localStorage.removeItem('token');
         return (
             <Provider template={AlertTemplate} {...options}>
@@ -113,6 +113,8 @@ function App1() {
                                                 path={page.pageLink}
                                                 component={page.view}
                                                 key={index}
+                                                darkMode={darkMode}
+                                                setDarkMode={setDarkMode}
                                             />
                                         );
                                     })}

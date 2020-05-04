@@ -25,6 +25,15 @@ const useStyles = makeStyles((theme) => ({
     selectEmpty: {
         marginTop: theme.spacing(2),
     },
+    select: {
+        '&:before': {
+            borderColor: 'Gray',
+        },
+        color: 'Green',
+    },
+    icon: {
+        fill: 'Gray',
+    },
 }));
 
 export default function Selfie(props) {
@@ -117,9 +126,9 @@ export default function Selfie(props) {
                     <FormControl className={classes.formControl}>
                         <InputLabel
                             id="demo-simple-select-autowidth-label"
-                            style={{ marginLeft: -20 }}
+                            style={{ marginLeft: -20, color: 'Gray' }}
                         >
-                            {<div style={{ color: 'Green' }}>Select Id</div>}
+                            Select Id
                         </InputLabel>
                         <Select
                             style={{ marginLeft: -20 }}
@@ -130,6 +139,12 @@ export default function Selfie(props) {
                                 setWhichId(e.target.value);
                                 localStorage.removeItem('imgId2');
                                 localStorage.removeItem('imgId1');
+                            }}
+                            className={classes.select}
+                            inputProps={{
+                                classes: {
+                                    icon: classes.icon,
+                                },
                             }}
                         >
                             <MenuItem value="Aadhar">Aadhar Card</MenuItem>

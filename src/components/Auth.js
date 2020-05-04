@@ -6,6 +6,7 @@ import InputLabel from '@material-ui/core/InputLabel';
 import FormControl from '@material-ui/core/FormControl';
 import MenuItem from '@material-ui/core/MenuItem';
 import Select from '@material-ui/core/Select';
+
 import {
     KeyboardDatePicker,
     MuiPickersUtilsProvider,
@@ -21,6 +22,7 @@ function calculate_age(dob) {
     var age_dt = new Date(diff_ms);
     return parseInt(Math.abs(age_dt.getUTCFullYear() - 1970));
 }
+const format = /[`!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~0123456789]/;
 const useStyles = (theme) => ({
     formControl: {
         margin: theme.spacing(1),
@@ -28,6 +30,35 @@ const useStyles = (theme) => ({
     },
     selectEmpty: {
         marginTop: theme.spacing(2),
+    },
+
+    cssLabel: {
+        color: 'Gray',
+    },
+    input: {
+        color: 'Green',
+    },
+
+    cssOutlinedInput: {
+        '&$cssFocused $notchedOutline': {
+            borderColor: `${theme.palette.primary.main} !important`,
+        },
+    },
+
+    cssFocused: {},
+
+    notchedOutline: {
+        borderWidth: '1px',
+        borderColor: 'Gray !important',
+    },
+    select: {
+        '&:before': {
+            borderColor: 'Gray',
+        },
+        color: 'Green',
+    },
+    icon: {
+        fill: 'Gray',
     },
 });
 
@@ -100,7 +131,7 @@ class Auth extends Component {
         let nam2 = this.state.details.lastName;
         let age = calculate_age(this.state.details.date);
         let cnt = this.state.cnt;
-        const format = /[ `!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~0123456789]/;
+
         let check = format.test(nam + nam2);
         if (check || !nam || !nam2) {
             alert('Enter Valid name without special characters and numbers');
@@ -157,8 +188,6 @@ class Auth extends Component {
                 [nam]: val,
             },
         }));
-        console.log(localStorage.getItem('imgData'));
-        console.log(localStorage.getItem('data'));
     };
     render() {
         // console.log(this.state.age);
@@ -196,7 +225,7 @@ class Auth extends Component {
                         }}
                     >
                         <h5> Kindly help us setup your KYC</h5>
-                        <h6 style={{ color: 'black' }}>
+                        <h6 style={{ color: 'Gray' }}>
                             We'll verify it with KYC documents
                         </h6>
                     </div>
@@ -205,11 +234,24 @@ class Auth extends Component {
                             // required
                             name="firstName"
                             id="outlined-required"
-                            label={'First Name'}
-                            // defaultValue="Hello World"
+                            label={<div>First Name</div>}
                             variant="outlined"
                             onChange={this.myChangeHandler}
                             value={this.state.details.firstName}
+                            InputLabelProps={{
+                                classes: {
+                                    root: classes.cssLabel,
+                                    focused: classes.cssFocused,
+                                },
+                            }}
+                            InputProps={{
+                                classes: {
+                                    input: classes.input,
+                                    root: classes.cssOutlinedInput,
+                                    focused: classes.cssFocused,
+                                    notchedOutline: classes.notchedOutline,
+                                },
+                            }}
                         />
                         <br></br>
                         <br></br>
@@ -217,8 +259,21 @@ class Auth extends Component {
                             // required
                             name="lastName"
                             id="outlined-required"
-                            label="Last Name"
-                            // defaultValue="Hello World"
+                            label={<div>Last Name</div>}
+                            InputLabelProps={{
+                                classes: {
+                                    root: classes.cssLabel,
+                                    focused: classes.cssFocused,
+                                },
+                            }}
+                            InputProps={{
+                                classes: {
+                                    input: classes.input,
+                                    root: classes.cssOutlinedInput,
+                                    focused: classes.cssFocused,
+                                    notchedOutline: classes.notchedOutline,
+                                },
+                            }}
                             variant="outlined"
                             onChange={this.myChangeHandler}
                             value={this.state.details.lastName}
@@ -229,7 +284,10 @@ class Auth extends Component {
                             className={classes.formControl}
                             style={{ width: 250, marginLeft: 0 }}
                         >
-                            <InputLabel id="demo-simple-select-label">
+                            <InputLabel
+                                id="demo-simple-select-label"
+                                style={{ color: 'Gray' }}
+                            >
                                 Gender
                             </InputLabel>
                             <Select
@@ -237,6 +295,12 @@ class Auth extends Component {
                                 id="demo-simple-select"
                                 value={this.state.details.gender}
                                 onChange={this.handleChange}
+                                className={classes.select}
+                                inputProps={{
+                                    classes: {
+                                        icon: classes.icon,
+                                    },
+                                }}
                             >
                                 <MenuItem value="Female">Female</MenuItem>
                                 <MenuItem value="Male">Male</MenuItem>
@@ -244,30 +308,48 @@ class Auth extends Component {
                         </FormControl>
                         <br></br>
                         <br></br>
+                        {/* <MuiThemeProvider theme={customTheme}> */}
                         <MuiPickersUtilsProvider utils={DateFnsUtils}>
                             <KeyboardDatePicker
                                 clearable
                                 value={this.state.details.date}
-                                label="Date of birth"
+                                label={
+                                    <div style={{ color: 'Gray' }}>
+                                        Date of birth
+                                    </div>
+                                }
                                 placeholder="10/10/2018"
                                 onChange={this.onDateChange}
                                 maxDate={new Date()}
                                 format="MM/dd/yyyy"
+                                InputProps={{
+                                    classes: { input: classes.input },
+                                }}
                             />
                         </MuiPickersUtilsProvider>
+                        {/* </MuiThemeProvider> */}
                         <br />
                         <br />
                         <button
                             className="button"
                             onClick={this.mySubmitHandler}
-                            style={{ marginLeft: 52, width: 150 }}
+                            style={{
+                                marginLeft: 52,
+                                width: 150,
+                                textAlign: 'center',
+                                fontSize: 15,
+                            }}
                         >
                             <Link
                                 to="/selfie"
                                 className="link1"
                                 onClick={
                                     this.state.details.firstName &&
-                                    this.state.details.lastName
+                                    this.state.details.firstName &&
+                                    !format.test(
+                                        this.state.details.firstName
+                                    ) &&
+                                    !format.test(this.state.details.lastName)
                                         ? null
                                         : (e) => e.preventDefault()
                                 }
